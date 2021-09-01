@@ -15,7 +15,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 /**
- * 用户验证处理
+ * 用户验证处理 自定义登陆处理
  * @author gavin
  */
 @Service

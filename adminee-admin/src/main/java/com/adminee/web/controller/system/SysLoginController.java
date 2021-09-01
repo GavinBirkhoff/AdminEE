@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 登录验证
  * @author gavin
  */
-@RestController
+@RestController /* @Controller + @ResponseBody*/
 public class SysLoginController {
     /**
      * 登录方法

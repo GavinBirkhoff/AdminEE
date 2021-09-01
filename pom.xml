@@ -66,12 +66,6 @@
                 <version>${mybatis-spring-boot.version}</version>
             </dependency>
 
-            <!-- 核心模块-->
-            <dependency>
-                <groupId>com.adminee</groupId>
-                <artifactId>adminee-framework</artifactId>
-                <version>${adminee.version}</version>
-            </dependency>
 
             <!-- pagehelper 分页插件 -->
             <dependency>
@@ -85,6 +79,27 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- Token生成与解析-->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jwt.version}</version>
+            </dependency>
+
+            <!-- 解析客户端操作系统、浏览器等 -->
+            <dependency>
+                <groupId>eu.bitwalker</groupId>
+                <artifactId>UserAgentUtils</artifactId>
+                <version>${bitwalker.version}</version>
+            </dependency>
+
+            <!-- 核心模块-->
+            <dependency>
+                <groupId>com.adminee</groupId>
+                <artifactId>adminee-framework</artifactId>
+                <version>${adminee.version}</version>
             </dependency>
 
             <!-- 系统模块-->
