@@ -105,6 +105,7 @@ public class TokenService
         String token = IdUtils.fastUUID();
         loginUser.setToken(token);
         setUserAgent(loginUser);
+        // 刷新并缓存loginUser
         refreshToken(loginUser);
 
         Map<String, Object> claims = new HashMap<>();
