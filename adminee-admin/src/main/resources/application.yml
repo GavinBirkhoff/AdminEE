@@ -31,10 +31,10 @@ server:
     min-spare-threads: 30
 
 ## 日志配置
-#logging:
-#  level:
-#    com.adminee: debug
-#    org.springframework: warn
+logging:
+  level:
+    com.adminee: debug
+    org.springframework: warn
 
 # Spring配置
 spring:

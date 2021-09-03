@@ -35,16 +35,16 @@
         </dependency>
 
         <!-- 验证码 -->
-<!--        <dependency>-->
-<!--            <groupId>com.github.penggle</groupId>-->
-<!--            <artifactId>kaptcha</artifactId>-->
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <artifactId>javax.servlet-api</artifactId>-->
-<!--                    <groupId>javax.servlet</groupId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.github.penggle</groupId>
+            <artifactId>kaptcha</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>javax.servlet-api</artifactId>
+                    <groupId>javax.servlet</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
         <!-- 获取系统信息 -->
 <!--        <dependency>-->

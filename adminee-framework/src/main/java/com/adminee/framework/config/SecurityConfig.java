@@ -1,6 +1,8 @@
 package com.adminee.framework.config;
 
+import com.adminee.framework.security.filter.JwtAuthenticationTokenFilter;
 import com.adminee.framework.security.handle.AuthenticationEntryPointImpl;
+import com.adminee.framework.security.handle.LogoutSuccessHandlerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -26,8 +28,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     /**
      * 自定义用户认证逻辑
      */
-//    @Autowired
-//    private UserDetailsService userDetailsService;
+    @Autowired
+    private UserDetailsService userDetailsService;
 
     /**
      * 认证失败处理类
@@ -38,20 +40,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     /**
      * 退出处理类
      */
-//    @Autowired
-//    private LogoutSuccessHandlerImpl logoutSuccessHandler;
+    @Autowired
+    private LogoutSuccessHandlerImpl logoutSuccessHandler;
 
     /**
      * token认证过滤器
      */
-//    @Autowired
-//    private JwtAuthenticationTokenFilter authenticationTokenFilter;
+    @Autowired
+    private JwtAuthenticationTokenFilter authenticationTokenFilter;
 
     /**
      * 跨域过滤器
      */
-//    @Autowired
-//    private CorsFilter corsFilter;
+    @Autowired
+    private CorsFilter corsFilter;
 
     /**
      * 解决 无法直接注入 AuthenticationManager
@@ -114,12 +116,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .anyRequest().authenticated()
                 .and()
                 .headers().frameOptions().disable();
-//        httpSecurity.logout().logoutUrl("/logout").logoutSuccessHandler(logoutSuccessHandler);
-//        // 添加JWT filter
-//        httpSecurity.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
-//        // 添加CORS filter
-//        httpSecurity.addFilterBefore(corsFilter, JwtAuthenticationTokenFilter.class);
-//        httpSecurity.addFilterBefore(corsFilter, LogoutFilter.class);
+        httpSecurity.logout().logoutUrl("/logout").logoutSuccessHandler(logoutSuccessHandler);
+        // 添加JWT filter
+        httpSecurity.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+        // 添加CORS filter
+        httpSecurity.addFilterBefore(corsFilter, JwtAuthenticationTokenFilter.class);
+        httpSecurity.addFilterBefore(corsFilter, LogoutFilter.class);
     }
 
 
@@ -135,10 +137,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     /**
      * 身份认证接口
      */
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception
-//    {
-//        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
-//    }
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception
+    {
+        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
+    }
 }
-
